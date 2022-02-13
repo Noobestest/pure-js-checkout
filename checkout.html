@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        table, th, td {
+          border:1px solid black;
+        }
+
+        input {
+            border: none
+        }
+
+        input:focus-visible {
+            outline: white
+        }
+    </style>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>Checkout Program</h1>
+
+
+<div>
+    <button onclick="selectLevel(1)">Associate</button>
+    <button onclick="selectLevel(2)">Diamond</button>
+    <p id="recepientId"></p>
+</div>
+
+<p></p>
+
+<div id="isRecipientSelected">
+    <!-- <button onclick="addNewProduct()">Add New</button> -->
+    <div>
+        <div id="productItems"></div>
+    </div>
+
+    <p>Special Price</p>
+    <div>
+        <div id="specialPriceProductItems"></div>
+    </div>
+
+    <div id="totalProductExpected"></div>
+    <p></p>
+    <button onclick="clearAll()">Clear</button>
+</div>
+
+
+<script src="checkoutFile.js"></script>
+
+
+</body>
+
+
+</html>
+
