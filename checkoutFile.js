@@ -130,6 +130,13 @@
 
             var displayProductItems = document.getElementById("totalProductExpected");
             displayProductItems.style.display = "none";
+
+            var displayDiscountProducts = document.getElementsByClassName("discount");
+            var discountProducts = Array.prototype.slice.call(displayDiscountProducts);
+            discountProducts.forEach(function(response){
+                response.textContent = "5"
+            })
+
             if(displayProductItems.hasChildNodes){
                 addedItem = [];
                 freeDealItems = [];
@@ -151,6 +158,13 @@
 
             var displayProductItems = document.getElementById("totalProductExpected");
             displayProductItems.style.display = "none";
+
+            var displayDiscountProducts = document.getElementsByClassName("discount");
+            var discountProducts = Array.prototype.slice.call(displayDiscountProducts);
+            discountProducts.forEach(function(response){
+                response.textContent = 20
+            })
+
             if(displayProductItems.hasChildNodes){
                 addedItem = [];
                 freeDealItems = [];
@@ -888,14 +902,17 @@
         var headerRow = document.createElement('tr')
         var headerName = document.createElement('th')
         var headerPrice = document.createElement('th')
+        var headerDiscount = document.createElement('th')
         var headerAction = document.createElement('th')
 
         headerName.textContent = 'Name';
         headerPrice.textContent = 'Price'
+        headerDiscount.textContent = 'Discount(%)'
         headerAction.textContent = 'Action'
 
         headerRow.appendChild(headerName);
         headerRow.appendChild(headerPrice);
+        headerRow.appendChild(headerDiscount);
         headerRow.appendChild(headerAction);
         table.appendChild(headerRow)
 
@@ -904,6 +921,7 @@
         var bodyRow = document.createElement('tr')
         var bodyName = document.createElement('td')
         var bodyPrice = document.createElement('td')
+        var bodyDiscount = document.createElement('td')
         var bodyAction = document.createElement('td')
 
         //Name of the product
@@ -925,6 +943,16 @@
         productPrice.setAttribute("onchange", "changeInput('" + productPriceId + "')")
         productPrice.setAttribute("type", "number")
         productPrice.setAttribute("value", value.NormalPrice)
+            
+        var productDiscount = document.createElement("span");
+        productDiscount.classList.add('discount');
+        productDiscount.setAttribute("type", "number")  
+        if(recipient == 1){
+             productDiscount.textContent = "5";
+        } else {
+            productDiscount.textContent = "20";
+        }
+       
 
         var additionProduct = document.createElement("button");
         additionProduct.setAttribute("type", "button")
@@ -938,10 +966,12 @@
 
         bodyName.appendChild(productName);
         bodyPrice.appendChild(productPrice);
+        bodyDiscount.appendChild(productDiscount);
         bodyAction.appendChild(additionProduct);
 
         bodyRow.appendChild(bodyName);
         bodyRow.appendChild(bodyPrice);
+        bodyRow.appendChild(bodyDiscount);
         bodyRow.appendChild(bodyAction);
         table.appendChild(bodyRow);
 
